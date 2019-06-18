@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
+//ShareButton!!
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+        
 //create a border for the Flags
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
@@ -47,7 +50,7 @@ class ViewController: UIViewController {
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
-        title = "what is \(countries[correctAnswer].uppercased())?                     score is \(score)"
+        title = "what is \(countries[correctAnswer].uppercased())?"
         
 //after 10 rounds Alert!!!!
         if rounds == 10 {
@@ -86,7 +89,13 @@ class ViewController: UIViewController {
       
     }
     
-    
+    //share the app with URL
+    @objc func shareTapped() {
+        let vc = UIAlertController(title: "", message: "Your Score is \(score)", preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "Back to Game", style: .cancel, handler: askQuestion))
+        present(vc, animated: true)
+    }
+
     
 
 }
