@@ -91,7 +91,7 @@ class ViewController: UIViewController {
     
     //share the app with URL
     @objc func shareTapped() {
-        let vc = UIAlertController(title: "", message: "Your Score is \(score)", preferredStyle: .alert)
+        let vc = UIAlertController(title: "Current Score", message: "Your Score is \(score)", preferredStyle: .alert)
         vc.addAction(UIAlertAction(title: "Back to Game", style: .cancel, handler: askQuestion))
         present(vc, animated: true)
     }
